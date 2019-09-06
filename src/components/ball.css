@@ -1,0 +1,16 @@
+.Ball-main {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: yellow;
+  position: absolute;
+}
+
+.Ball-green {
+  background-color: green;
+}
+
+.Ball-red {
+  background-color: red;
+}

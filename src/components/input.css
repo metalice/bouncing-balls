@@ -1,0 +1,33 @@
+.Input-main {
+  justify-content: center;
+  margin: 30px;
+  align-items: center;
+  display: flex;
+}
+
+.Input-button {
+  color: #000000 !important;
+  font-size: 14px;
+  width: 95%;
+  text-shadow: 1px 1px 0px #ffffff;
+}
+
+.Input-button-wrapper {
+  margin: 16px 0 8px 30px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Input-button,
+.Input-button-wrapper {
+  border-radius: 15px !important;
+  border: 2px solid #a3a3a3;
+  box-shadow: 1px 1px 1px #999999;
+  background: linear-gradient(to top, #c9c9c9, #858585);
+}
+
+.Input-icon {
+  margin: 0 10px 0 10px !important;
+}
