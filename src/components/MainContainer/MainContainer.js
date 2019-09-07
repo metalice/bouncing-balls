@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Grow } from "@material-ui/core";
 
-import { CHANGE_MAX_HEIGHT, CHANGE_MAX_WIDTH } from "../store/actions/";
-import Balls from "./Balls";
+import { CHANGE_MAX_HEIGHT, CHANGE_MAX_WIDTH } from "../../store/actions";
+import Balls from "../Balls/Balls";
 
 import "./main-container.css";
 

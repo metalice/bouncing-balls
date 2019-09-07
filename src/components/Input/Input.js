@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { TextField, Button, Zoom } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
-import { CHANGE_INPUT } from "../store/actions";
+import { CHANGE_INPUT } from "../../store/actions";
 
 import "./input.css";
 
@@ -24,17 +24,12 @@ const Input = () => {
           label="How many balls?"
           onChange={onChangeInput}
           type="number"
+          inputProps={{ min: "0" }}
           margin="normal"
           variant="outlined"
         />
         <div className="Input-button-wrapper">
-          <Button
-            className="Input-button"
-            size="large"
-            variant="contained"
-            //   color="primary"
-            onClick={onClick}
-          >
+          <Button className="Input-button" size="large" variant="contained" onClick={onClick}>
             <StarIcon className="Input-icon" />
             RUN
             <StarIcon className="Input-icon" />

@@ -1,0 +1,17 @@
+.Ball-main {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  background: radial-gradient(circle at 65% 15%, white 1px, goldenrod 3%, yellow 60%, coral 100%); 
+}
+
+.Ball-green {
+  background: radial-gradient(circle at 65% 15%, white 1px, aquamarine 3%, green 60%, darkgreen 100%); 
+
+}
+
+.Ball-red {
+  background: radial-gradient(circle at 65% 15%, white 1px, tomato 3%, red 60%, darkred 100%); 
+}

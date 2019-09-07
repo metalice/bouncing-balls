@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MainContainer from "./components/MainContainer";
-import Input from "./components/Input";
+
+import MainContainer from "./components/MainContainer/MainContainer";
+import Input from "./components/Input/Input";
+
 import "./app.css";
 
 const App = () => {
@@ -9,6 +11,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => setTitleEffect(""), 500);
   }, []);
+
   return (
     <div className="App-main">
       <div className={titleEffect}>

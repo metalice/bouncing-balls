@@ -3,7 +3,7 @@ import { INPUT } from "../../utils/types";
 export default (state = {}, { type, data }) => {
   switch (type) {
     case INPUT:
-      return { ...state, input: data };
+      return { ...state, inputValue: data };
     default:
       return state;
   }

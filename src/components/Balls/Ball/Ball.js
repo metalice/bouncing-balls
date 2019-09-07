@@ -2,15 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import uuid from "uuid";
 
-import { CHANGE_ADD_TO_BALLS, CHANGE_UPDATE_X, REMOVE_BALL } from "../store/actions";
-import { nextStep, random } from "../utils/ballHelper";
-import { SPEED } from "../utils/types";
+import { CHANGE_ADD_TO_BALLS, CHANGE_UPDATE_X, REMOVE_BALL } from "../../../store/actions";
+import { nextStep, random } from "../../../utils/ballHelper";
+import { SPEED } from "../../../utils/types";
 
 import "./ball.css";
 
 const Ball = () => {
-  const { maxWidth, maxHeight } = useSelector(state => state.dimensions);
-  const { mostRight, mostLeft } = useSelector(state => state.balls);
+  const { maxWidth, maxHeight } = useSelector(({ dimensions }) => dimensions);
+  const { mostRight, mostLeft } = useSelector(({ balls }) => balls);
   const dispatch = useDispatch();
 
   const ref = useRef(null);
@@ -22,16 +22,18 @@ const Ball = () => {
     ref.current.id = uuid();
     dispatch(CHANGE_ADD_TO_BALLS({ id: ref.current.id }));
   }, [dispatch, ref]);
-
   useEffect(() => {
+    let isMounted = true;
     const direction = { x: 1, y: 1 };
     const idToRemove = ref.current.id;
 
     const intervalId = setInterval(() => {
-      setX(x => nextStep(maxWidth, x, "x", speed, direction));
-      setY(y => nextStep(maxHeight, y, "y", speed, direction));
+      isMounted && setX(x => nextStep(maxWidth, x, "x", speed, direction));
+      isMounted && setY(y => nextStep(maxHeight, y, "y", speed, direction));
     }, 100);
+
     return () => {
+      isMounted = false;
       clearInterval(intervalId);
       dispatch(REMOVE_BALL({ id: idToRemove }));
     };
@@ -44,7 +46,7 @@ const Ball = () => {
   const color = (x === mostLeft && "Ball-green") || (x === mostRight && "Ball-red") || "";
   const transform = "translate(" + x + "px, " + y + "px)";
 
-  return <div ref={ref} className={`Ball-main ${color}`} style={{ transform }}></div>;
+  return <div ref={ref} className={`Ball-main ${color}`} style={{ transform }} />;
 };
 
 export default Ball;
