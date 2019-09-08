@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import MainContainer from "./components/MainContainer/MainContainer";
 import Input from "./components/Input/Input";
 
-import "./app.css";
+import "./App.css";
 
 const App = () => {
   const [titleEffect, setTitleEffect] = useState("App-loading");
